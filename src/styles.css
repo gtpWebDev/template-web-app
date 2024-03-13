@@ -1,0 +1,86 @@
+:root {
+
+  font-size: 62.5%; /* 10px, sets the rem */
+  --actual-font-size: 1.5rem;
+  --drop-down-height: calc(1.4*var(--actual-font-size));
+  --drop-down-width: 200px;
+
+  --unselected-color: rgb(128, 194, 191);
+  --selected-color: rgb(36, 164, 158);
+}
+
+body {
+  padding: 60px;
+}
+
+@font-face {
+  font-family: 'Dancing';
+  src: url('./dancing.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+#fontCheck {
+  color: black;
+  font-size: 24px;
+  font-family: 'Dancing';
+}
+
+p, img {
+  line-height: var(--actual-font-size); /* important to control overall height of text*/
+  margin: 0;
+  padding: 0;
+}
+
+.drop-down-container {
+  position: relative; /* all absolute positions will be relative to this item */  
+  font-size: var(--actual-font-size); /* 20px for all contents */
+  cursor: default;
+}
+
+.drop-down-list-no-display {
+  visibility: hidden;
+}
+
+.drop-down-list-display {
+  visibility: visible;
+}
+
+
+.selector-bar {
+  background-color: lightgray;
+  width: var(--drop-down-width);
+  height: var(--drop-down-height);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: center;
+}
+
+#selector-text {
+  grid-column: 1;
+  justify-items: left;
+  display: grid;
+  align-items: center;
+}
+
+#selector-caret {
+  grid-column: 2;
+  width: var(--drop-down-height);
+  display: grid;
+  align-items: center;
+}
+
+.selector-drop-down-item {
+  background-color: var(--unselected-color);
+  color: white;
+  position: absolute;
+  width: var(--drop-down-width);
+  height: var(--drop-down-height);
+  top: calc(var(--drop-down-height));
+  display: grid;
+  align-items: center;
+}
+
+.selector-drop-down-item:hover {
+  background-color: var(--selected-color);
+}
