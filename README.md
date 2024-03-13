@@ -505,7 +505,3 @@ The following check can be carried to check whether there are any unnecessary or
 ```bash
 npx eslint-config-prettier path/to/main.js
 ```
-
-'''
-testing
-'''
