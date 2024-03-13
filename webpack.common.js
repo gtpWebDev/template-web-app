@@ -1,5 +1,7 @@
 const path = require('path');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/index.js', // webpack builds based on dependencies from this file
   // optimization: { // avoids issues should there be multiple entry points, only use then
@@ -26,4 +28,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Page Title',
+      template: './src/template.html',
+    }),
+  ],
 };

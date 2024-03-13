@@ -37,13 +37,13 @@ npm-package-template
 Add some basic webpack configuration details. Note this includes the option to maintain a clean distribution folder.
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
 };
@@ -86,19 +86,19 @@ npm install --save-dev style-loader css-loader
 And add them to the module configuration (the sequence is important):
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -116,7 +116,7 @@ Add a **styles.css** file to the src directory and import it in **index.js**
 **index.js**
 
 ```js
-import "./style.css";
+import './style.css';
 ```
 
 ### Loading Images
@@ -124,23 +124,23 @@ import "./style.css";
 To use images we use the built-in webpack Asset Modules, incorporating them into the module configuration:
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -159,7 +159,7 @@ As an example, add **menu-down.svg** to the src directory and import it in **ind
 **index.js**
 
 ```js
-import DownCaret from "./menu-down.svg";
+import DownCaret from './menu-down.svg';
 ```
 
 ### Loading Fonts
@@ -167,27 +167,27 @@ import DownCaret from "./menu-down.svg";
 Similarly, fonts use the built-in webpack Asset Modules, incorporating them into the module configuration.
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -208,12 +208,12 @@ As an example, add **dancing.ttf** to the src directory and incorporate it via a
 
 ```css
 @font-face {
-  font-family: "Dancing";
-  src: url("./dancing.ttf");
+  font-family: 'Dancing';
+  src: url('./dancing.ttf');
 }
 
 #fontCheck {
-  font-family: "Dancing";
+  font-family: 'Dancing';
 }
 ```
 
@@ -227,10 +227,10 @@ npm install --save-dev html-webpack-plugin
 
 Since the plugin overwrite any existing index.html in the /dist directory, it uses template.html in the /src directory.
 
-**webpack.config.js**
+**webpack.common.js**
 
 ```js
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 ```
 
 ```js
@@ -272,36 +272,36 @@ npm install webpack-dev-server --save-dev
 **webpack.config.js**
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js", // webpack builds based on dependencies from this file
-  devtool: "inline-source-map",
+  mode: 'development',
+  entry: './src/index.js', // webpack builds based on dependencies from this file
+  devtool: 'inline-source-map',
   devServer: {
-    static: "./dist",
+    static: './dist',
   },
   // optimization: { // avoids issues should there be multiple entry points, only use then
   //   runtimeChunk: 'single',
   //  },
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true, // cleans up the dist directory on each build
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -335,28 +335,28 @@ npm install --save-dev webpack-merge
 **webpack.common.js**
 
 ```js
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -366,14 +366,14 @@ module.exports = {
 **webpack.dev.js**
 
 ```js
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: "development",
-  devtool: "inline-source-map",
+  mode: 'development',
+  devtool: 'inline-source-map',
   devServer: {
-    static: "./dist",
+    static: './dist',
   },
 });
 ```
@@ -383,12 +383,12 @@ We will also add a more efficient source-map for production
 **webpack.prod.js**
 
 ```js
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
 });
 ```
 
@@ -466,6 +466,17 @@ Then, create an empty config file to let editors and other tools know you are us
 
 ```bash
 node --eval "fs.writeFileSync('.prettierrc','{}\n')"
+```
+
+My preferred settings for now
+
+```js
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true
+}
 ```
 
 Next, create a .prettierignore file to let the Prettier CLI and editors know which files to not format. I'm using this until I understand better...
