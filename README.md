@@ -225,8 +225,7 @@ This plugin is used to bundle html files into the production directory.
 npm install --save-dev html-webpack-plugin
 ```
 
-This will overwrite any existing index.html in the /dist directory.
-It will create a basic html template, but an alternative template can be provided yo base the dist version from.
+Since the plugin overwrite any existing index.html in the /dist directory, it uses template.html in the /src directory.
 
 **webpack.config.js**
 
@@ -447,10 +446,7 @@ This creates an **.eslintrc.json** file (you have the option to make this JSON, 
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "single"]
-  }
+  "rules": {}
 }
 ```
 
@@ -458,7 +454,7 @@ If the VSC plug-in for ESLint hasn't been installed, the instructions are [here]
 
 I haven't done much configuration. Details can be found [here](https://eslint.org/docs/latest/use/configure/).
 
-## Installing Prettier
+### Installing Prettier
 
 The following command will install Prettier.
 
@@ -498,17 +494,18 @@ Then add eslint-config-prettier to the eslint config file
 
 **.eslintrc.json**
 
-````json
+```json
 {
-  "extends": [
-    "some-other-config-you-use",
-    "prettier"
-  ]
+  "extends": ["some-other-config-you-use", "prettier"]
 }
-...
+```
 
 The following check can be carried to check whether there are any unnecessary or conflicting rules across Prettier and ESLint.
 
 ```bash
 npx eslint-config-prettier path/to/main.js
-````
+```
+
+'''
+testing
+'''
