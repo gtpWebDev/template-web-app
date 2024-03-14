@@ -516,3 +516,34 @@ The following check can be carried to check whether there are any unnecessary or
 ```bash
 npx eslint-config-prettier path/to/main.js
 ```
+
+### Installing Babel loader
+
+The following command will install babel and its presets
+
+```bash
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+```
+
+Add the babel loader into the webpack configuration.
+
+**webpack.common.js**
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.(?:js|mjs|cjs)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [['@babel/preset-env', { targets: 'defaults' }]],
+        },
+      },
+    },
+  ];
+}
+```
+
+For now, the babel set-up doesn't apply any options, exceptions, etc.

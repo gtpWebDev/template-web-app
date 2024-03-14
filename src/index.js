@@ -15,3 +15,10 @@ testText.setAttribute('id', 'fontCheck');
 element.appendChild(testText);
 element.appendChild(img);
 document.body.appendChild(element);
+
+const arrowFunction = (input) => {
+  return ++input;
+};
+
+const result = arrowFunction(3);
+console.log(result);
