@@ -547,3 +547,26 @@ module: {
 ```
 
 For now, the babel set-up doesn't apply any options, exceptions, etc.
+
+### Installing jest
+
+The following command will install jest as a development dependency
+
+```bash
+npm install --save-dev jest
+```
+
+Update two scripts to run jest and to apply constant watch
+
+**package.json**
+
+```js
+"scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+}
+```
+
+Note, there may be some additional Jest / Babel configuration, as
+
+described at the bottom of the [jest getting-started guide](https://jestjs.io/docs/getting-started).
