@@ -1,6 +1,6 @@
 # template-web-app
 
-A template appropriate for publishing an web application, with a step-by-step guide of how it has been built
+A template appropriate for publishing a web application, with a step-by-step guide of how it has been built
 
 ## Using the template
 
@@ -15,7 +15,7 @@ npm start
 
 Html updates are not automatically updating on save, and require a page refresh.
 
-## Step-by-step set-up instructions
+## Step-by-step build guide
 
 ### Basic webpack setup
 
@@ -28,7 +28,7 @@ npm init -y
 npm install webpack webpack-cli --save-dev
 ```
 
-### Some files and directories
+### Files and directory structure
 
 Create src and dist folders, and add an index.js file in the src directory.
 
@@ -207,7 +207,7 @@ module.exports = {
 };
 ```
 
-As an example, add **dancing.ttf** to the src directory and incorporate it via an @font-face declaration in **styles.css** (note, the image needs to be used for webpack to add it to the build)
+As an example, add **Kanit-Regular.ttf** to the src directory and incorporate it via an @font-face declaration in **styles.css** (note, the image needs to be used for webpack to add it to the build)
 
 ```
   |- /src
@@ -221,12 +221,8 @@ As an example, add **dancing.ttf** to the src directory and incorporate it via a
 
 ```css
 @font-face {
-  font-family: 'Dancing';
-  src: url('./dancing.ttf');
-}
-
-#fontCheck {
-  font-family: 'Dancing';
+  font-family: 'Kanit';
+  src: url('./Kanit-Regular.ttf');
 }
 ```
 
@@ -342,8 +338,6 @@ merge() calls in the environment-specific configurations to include our common c
 ```bash
 npm install --save-dev webpack-merge
 ```
-
-(NOT 100% SURE THAT RULES SHOULD BE IN COMMON?)
 
 **webpack.common.js**
 

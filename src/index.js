@@ -3,22 +3,9 @@ import DownCaret from './menu-down.svg';
 
 console.log('TEST');
 
-const element = document.createElement('div');
+const element = document.querySelector('#caret-container');
+
 const img = document.createElement('img');
-
 img.setAttribute('src', DownCaret);
-
-const testText = document.createElement('p');
-testText.textContent = 'Testing';
-testText.setAttribute('id', 'fontCheck');
-
-element.appendChild(testText);
+img.setAttribute('style', 'width:50px');
 element.appendChild(img);
-document.body.appendChild(element);
-
-const arrowFunction = (input) => {
-  return ++input;
-};
-
-const result = arrowFunction(3);
-console.log(result);
