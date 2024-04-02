@@ -22,7 +22,7 @@ Follow these [instructions](https://gist.github.com/cobyism/4730490), with the f
 git add dist && git commit -m "Initial dist subtree commit"
 ```
 
-Use subtree push to send it to the **gh-pages** branch on github.
+3. Use subtree push to send it to the **gh-pages** branch on github.
 
 ```git
 git subtree push --prefix dist origin gh-pages
@@ -591,6 +591,24 @@ Update two scripts to run jest and to apply constant watch
 }
 ```
 
-Note, there may be some additional Jest / Babel configuration, as
+There is some addtional Jest/Babel configuration. Note, this is quite deep configuration and I'm only following directions and then stackoverflow resolutions to get it to work.
 
-described at the bottom of the [jest getting-started guide](https://jestjs.io/docs/getting-started).
+Firstly, follow the process described at the bottom of the [jest getting-started guide](https://jestjs.io/docs/getting-started).
+
+```bash
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
+
+Create **babel.config.js** and configure Babel to target the current version of Node.
+
+```js
+module.exports = {
+  presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
+};
+```
+
+Finally, an amendment is necessary, as referenced in [stackoverflow](https://stackoverflow.com/questions/61146112/error-while-loading-config-you-appear-to-be-using-a-native-ecmascript-module-c)
+
+Change **babel.config.js** to **babel.config.cjs** which seems to relate to common js.
+
+I would like to understand this one day!
