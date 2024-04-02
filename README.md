@@ -11,6 +11,23 @@ npm install
 npm start
 ```
 
+## Deploying on github
+
+Follow these [instructions](https://gist.github.com/cobyism/4730490), with the following stages:
+
+1. Remove the dist directory from the **.gitignore** file.
+2. (Might be optional if the directory already exists?) Make sure git knows about the subtree
+
+```git
+git add dist && git commit -m "Initial dist subtree commit"
+```
+
+Use subtree push to send it to the **gh-pages** branch on github.
+
+```git
+git subtree push --prefix dist origin gh-pages
+```
+
 ## Issues
 
 Html updates are not automatically updating on save, and require a page refresh.
