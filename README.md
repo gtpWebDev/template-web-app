@@ -1,6 +1,19 @@
-# npm-package-template
+# template-web-app
 
-A template appropriate for publishing an npm-template, with step-by-step instructions
+A template appropriate for publishing an web application, with a step-by-step guide of how it has been built
+
+## Using the template
+
+Clone this repository and then install the npm dependencies and load webpack's automatic updates, and you're ready to go...
+
+```bash
+npm install
+npm start
+```
+
+## Issues
+
+Html updates are not automatically updating on save, and require a page refresh.
 
 ## Step-by-step set-up instructions
 
