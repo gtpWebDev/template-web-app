@@ -28,6 +28,10 @@ git add dist && git commit -m "Initial dist subtree commit"
 git subtree push --prefix dist origin gh-pages
 ```
 
+## To do list of additions
+
+1. Consider adding a font-family such as Roboto for full setup (reference Odin-16-Homepage)
+
 ## Issues
 
 Html updates are not automatically updating on save, and require a page refresh.
@@ -253,7 +257,7 @@ npm install --save-dev html-webpack-plugin
 
 Since the plugin overwrite any existing index.html in the /dist directory, it uses template.html in the /src directory.
 
-**webpack.common.js**
+**webpack.config.js**
 
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -305,7 +309,7 @@ module.exports = {
   entry: './src/index.js', // webpack builds based on dependencies from this file
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
+    static: './src',
   },
   // optimization: { // avoids issues should there be multiple entry points, only use then
   //   runtimeChunk: 'single',
@@ -333,6 +337,8 @@ module.exports = {
   },
 };
 ```
+
+IMPORT NOTE: The [webpack guide](https://webpack.js.org/guides/development/) uses "static: "./dist" but with this html updates are not seen as hot updates. "./src" seems to work.
 
 Add a script to run the webpack dev server
 
