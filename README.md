@@ -28,6 +28,16 @@ git add dist && git commit -m "Initial dist subtree commit"
 git subtree push --prefix dist origin gh-pages
 ```
 
+4. Add this last command as a script for easy-repeat:
+
+**package.json**
+
+```
+"scripts": {
+    "subpush": "git subtree push --prefix dist origin gh-pages"
+  },
+```
+
 ## To do list of additions
 
 1. Consider adding a font-family such as Roboto for full setup (reference Odin-16-Homepage)
@@ -367,6 +377,8 @@ npm install --save-dev webpack-merge
 ```js
 const path = require('path');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -409,7 +421,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
+    static: './src',
   },
 });
 ```
@@ -453,6 +465,7 @@ Now update the NPM scripts to use the new config files
   "devDependencies": {
     "css-loader": "^6.10.0",
     "style-loader": "^3.3.4",
+    "html-webpack-plugin": "^5.6.0",
     "webpack-dev-server": "^5.0.2",
     "webpack-merge": "^5.10.0"
   }
